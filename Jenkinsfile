@@ -12,8 +12,8 @@ pipeline {
     //--------------------------
     stage('Docker Build and Push') {
       steps {
-        withCredentials([string(credentialsId: 'docker-hub-password-achraf', variable: 'DOCKER_HUB_PASSWORD_HALIT')]) {
-          sh 'sudo docker login -u halit4141 -p $DOCKER_HUB_PASSWORD'
+        withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD_HALIT', variable: 'password')]) {
+          sh 'sudo docker login -u halit4141 -p $password'
           sh 'printenv'
           sh 'sudo docker build -t halit4141/devops-app:""$GIT_COMMIT"" .'
           sh 'sudo docker push halit4141/devops-app:""$GIT_COMMIT""'
