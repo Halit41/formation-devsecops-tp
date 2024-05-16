@@ -15,8 +15,8 @@ pipeline {
         withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD_HALIT', variable: 'password')]) {
           sh 'sudo docker login -u halit4141 -p $password'
           sh 'printenv'
-          sh 'sudo docker build -t halit4141/devops-app:""$GIT_COMMIT"" .'
-          sh 'sudo docker push halit4141/devops-app:""$GIT_COMMIT""'
+          sh 'sudo docker build -t halit4141/devops-app:latest .'
+          sh 'sudo docker push halit4141/devops-app:latest'
         }
       }
     }
