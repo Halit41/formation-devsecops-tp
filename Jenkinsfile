@@ -9,7 +9,7 @@ pipeline {
       }
       }
 
-    //--------------------------
+    //--------------------------testest
     stage('Docker Build and Push') {
       steps {
         withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD_HALIT', variable: 'password')]) {
